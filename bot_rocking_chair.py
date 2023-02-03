@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-TOKEN = os.getenv('TOKEN')
+TOKEN = str(os.getenv('TOKEN'))
 
 # Bot_init
 bot = aiogram.Bot(token=TOKEN,parse_mode=types.ParseMode.HTML)

@@ -346,7 +346,7 @@ def add_training_to_dnevnik(dnevnik_id, training_id, start_time):
         cur.execute(f"SELECT * FROM tgbot_dnevnik WHERE id = {dnevnik_id}")
         if cur.fetchone() is None:
             raise DnevnikException()
-        cur.execute(f"INSERT INTO tgbot_dnevnik_trainings (dnevnik_id, training_id, start_training) VALUES (%s, %s, %s) returning id", (dnevnik_id, training_id, start_time))
+        cur.execute("INSERT INTO tgbot_dnevnik_trainings (dnevnik_id, training_id, start_training) VALUES (%s, %s, %s) returning id", (dnevnik_id, training_id, start_time))
         id = cur.fetchone()[0]
 
         return id
