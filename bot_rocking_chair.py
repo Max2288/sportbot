@@ -410,11 +410,11 @@ async def change_key(call: types.CallbackQuery, state: FSMContext):
     change_key = await state.get_data()
     change_key = change_key["change_key"]
     if call.data == 'Дом':
-        g = 25
+        g = 1
     elif call.data == 'Тренажерный Зал':
-        g = 23
+        g = 3
     else:
-        g = 24
+        g = 2
     set_user_place(call.from_user.id, g)
     await call.message.delete()
     await characteristic(change_key)
